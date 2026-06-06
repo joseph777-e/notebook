@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notebook – IGCSE study-space</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="notebook.css" />
+</head>
+
+<body>
+
+  <!-- SIDEBAR (Same system as Subjects) -->
+  <div id="sidebar" class="sidebar">
+    <a href="index.html">🏠 Home</a>
+    <a href="subjects.html">📚 Subjects</a>
+    <a href="past-papers.html">📄 Past Papers</a>
+    <a href="notebook.html">📝 Notebook</a>
+    <a href="feedback.html">💬 Feedback</a>
+
+    <div class="toggle-wrapper">
+      <div class="toggle-switch" id="darkModeToggle" onclick="toggleDarkMode()">
+        <div class="toggle-circle">
+          <span id="toggleIcon">🌞</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <h1>Notebook</h1>
+    <nav id="menu" class="dropdown-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <li><a href="past-papers.html">Past Papers</a></li>
+        <li><a href="notebook.html">Notebook</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      
+      </ul>
+    </nav>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  </header>
+
+  <!-- MAIN -->
+  <main class="notebook-container">
+
+    <!-- LEFT SIDE -->
+    <div class="notebook-sidebar">
+      <input class="search" placeholder="Search notes..." oninput="searchNotes(this.value)">
+
+      <div class="tabs">
+        <button class="active" onclick="setFilter('all', this)">All</button>
+        <button onclick="setFilter('fav', this)">Favorites</button>
+        <button onclick="setFilter('pin', this)">Pinned</button>
+      </div>
+
+      <div class="notes" id="notes"></div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="editor-wrapper">
+      <div id="empty" class="empty">
+        No notes yet<br><small>Tap + to create one</small>
+      </div>
+    
+    
+
+      <div class="editor" id="editor">
+        <div class="editor-top">
+          <span id="date"></span>
+
+          <div class="editor-actions">
+            <button id="pinBtn" onclick="togglePin()">📌</button>
+            <button id="favBtn" onclick="toggleFav()">⭐</button>
+            <button class="delete" onclick="removeNote()">🗑️</button>
+          </div>
+        </div>
+
+        <input id="title" placeholder="Title">
+        <textarea id="content" placeholder="Start writing..."></textarea>
+      </div>
+    </div>
+
+  </main>
+
+  <button class="add-btn" onclick="addNote()">+</button>
+
+  <script src="script.js" ></script>
+  <script src="notebook.js"></script>
+
+</body>
+</html>
